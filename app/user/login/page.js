@@ -1,6 +1,8 @@
 "use client";
 
+import { signIn } from "next-auth/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
 const Login = () => {
@@ -11,8 +13,19 @@ const Login = () => {
         formState: { errors },
     } = useForm();
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const router = useRouter();
+
+    const onSubmit = async (data) => {
+        const { phone, password } = data;
+        console.log(phone, password);
+        const res = await signIn("credentials", {
+            phone,
+            password,
+            redirect: false,
+        });
+
+        if (res?.error) alert(res?.error);
+        router.replace("/");
     };
 
     return (

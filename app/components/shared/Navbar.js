@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AuthButtons from "../AuthButtons";
 
 const Navbar = () => {
     return (
@@ -68,17 +69,7 @@ const Navbar = () => {
                             </svg>
                         </div>
                     </label>
-                    <ul
-                        tabIndex={0}
-                        className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-                    >
-                        <li>
-                            <a className="justify-between">Name</a>
-                        </li>
-                        <li>
-                            <Link href={"user/login"}>Logout</Link>
-                        </li>
-                    </ul>
+                    <AuthButtons />
                 </div>
             </div>
         </div>

@@ -17,7 +17,7 @@ const Login = () => {
 
     const onSubmit = async (data) => {
         const { phone, password } = data;
-        console.log(phone, password);
+        
         const res = await signIn("credentials", {
             phone,
             password,

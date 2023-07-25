@@ -1,10 +1,15 @@
 import bcrypt from "bcrypt";
 import { Schema, model, models } from "mongoose";
 
-const userSchema = new Schema({
-    phone: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-});
+const userSchema = new Schema(
+    {
+        phone: { type: String, required: true, unique: true },
+        password: { type: String, required: true },
+    },
+    {
+        timestamps: true,
+    }
+);
 
 userSchema.pre("save", async function (next) {
     if (!this.isModified("password")) return next();

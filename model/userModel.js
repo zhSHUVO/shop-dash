@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { Schema } from "mongoose";
+import { Schema, model, models } from "mongoose";
 
 const userSchema = new Schema({
     phone: { type: String, required: true, unique: true },

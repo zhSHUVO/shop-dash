@@ -1,8 +1,12 @@
+import Link from "next/link";
+
 const Navbar = () => {
     return (
         <div className="navbar bg-base-100">
             <div className="flex-1">
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <Link href={"/"} className="btn btn-ghost normal-case text-xl">
+                    Home
+                </Link>
             </div>
             <div className="flex-none">
                 <div className="dropdown dropdown-end">
@@ -69,16 +73,10 @@ const Navbar = () => {
                         className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                     >
                         <li>
-                            <a className="justify-between">
-                                Profile
-                                <span className="badge">New</span>
-                            </a>
+                            <a className="justify-between">Name</a>
                         </li>
                         <li>
-                            <a>Settings</a>
-                        </li>
-                        <li>
-                            <a>Logout</a>
+                            <Link href={"user/login"}>Logout</Link>
                         </li>
                     </ul>
                 </div>

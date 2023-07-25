@@ -11,8 +11,18 @@ const Reg = () => {
         formState: { errors },
     } = useForm();
 
-    const onSubmit = (data) => {
-        console.log(data);
+    let regError;
+
+    const onSubmit = async (userInfo) => {
+        const res = await fetch("/api/auth/user", {
+            method: "POST",
+            body: JSON.stringify(userInfo),
+        }).then((res) => res.json());
+        if (!res.user) {
+            alert(res?.error);
+        } else {
+            alert("reg successful");
+        }
     };
 
     return (
@@ -93,6 +103,8 @@ const Reg = () => {
                             </span>
                         )}
                     </div>
+
+                    {regError}
 
                     <input
                         value={"register"}

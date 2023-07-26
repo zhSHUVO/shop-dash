@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const CustomerDashboard = async () => {
     const res = await fetch("http://localhost:3000/api/auth/user", {
         cache: "no-store",
@@ -7,10 +9,17 @@ const CustomerDashboard = async () => {
     const users = data?.users;
 
     return (
-        <div>
-            <div className="flex justify-center pl-10">
+        <div className="pl-10 w-[50%]">
+            <div className="flex items-center justify-evenly w-full pb-5">
+                <h1>Total users {users.length}</h1>
+                <Link href={"/customers/add"} className="btn btn-neutral">
+                    Add User
+                </Link>
+            </div>
+
+            <div className="flex justify-center">
                 <div className="overflow-x-auto ">
-                    <table className="table table-auto ">
+                    <table className="table table-fixed">
                         <thead>
                             <tr className="hover">
                                 <th>Phone</th>

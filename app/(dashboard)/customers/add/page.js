@@ -1,9 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { useForm } from "react-hook-form";
 
-const Reg = () => {
+const AddProduct = () => {
     const {
         register,
         handleSubmit,
@@ -11,7 +10,7 @@ const Reg = () => {
         formState: { errors },
     } = useForm();
 
-    let regError;
+    let subError;
 
     const onSubmit = async (userInfo) => {
         const res = await fetch("http://localhost:3000/api/auth/user", {
@@ -21,17 +20,17 @@ const Reg = () => {
         if (!res.user) {
             alert(res?.error);
         } else {
-            alert("reg successful");
+            alert("added successfully");
         }
     };
 
     return (
-        <div className="pt-10">
-            <h1 className="text-center text-3xl mb-5">Register</h1>
-            <div className="flex justify-center items-center ">
+        <div className="pl-10 w-full">
+            <h1 className="text-center text-3xl pb-5">Add New User</h1>
+            <div className="flex justify-center items-center w-full">
                 <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="flex flex-col lg:w-1/4 w-3/4	shadow-2xl bg-base-100 rounded-xl p-5"
+                    className="flex flex-col shadow-2xl bg-base-100 rounded-xl w-[50%]"
                 >
                     <div className="indicator w-full">
                         <input
@@ -80,47 +79,17 @@ const Reg = () => {
                         )}
                     </div>
 
-                    <div className="indicator w-full">
-                        <input
-                            placeholder="Confirm Password"
-                            className="my-1 input input-bordered w-full"
-                            type="password"
-                            {...register("confirmpass", {
-                                required: {
-                                    value: true,
-                                    message: "Confirm Password is Required",
-                                },
-                                validate: (val) => {
-                                    if (val !== watch("password")) {
-                                        return "Your passwords do not match";
-                                    }
-                                },
-                            })}
-                        />
-                        {errors.confirmpass && (
-                            <span className="indicator-item badge">
-                                {errors.confirmpass.message}
-                            </span>
-                        )}
-                    </div>
-
-                    {regError}
+                    {subError}
 
                     <input
-                        value={"register"}
+                        value={"Add"}
                         className="my-1 btn btn-primary"
                         type="submit"
                     />
                 </form>
             </div>
-            <p className="text-center pt-10">
-                Existing user?{" "}
-                <Link href={"login"} className="ml-3 btn btn-primary">
-                    Login
-                </Link>
-            </p>
         </div>
     );
 };
 
-export default Reg;
+export default AddProduct;

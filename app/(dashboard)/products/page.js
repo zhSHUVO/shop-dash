@@ -32,9 +32,9 @@ const ProductDashboard = async () => {
                         </thead>
                         <tbody>
                             {products.map((product) => (
-                                <tr className="hover" key={product._id}>
+                                <tr className="hover" key={product?._id}>
                                     <td>
-                                        <p>{product.name}</p>
+                                        <p>{product?.name}</p>
                                     </td>
                                     <td>
                                         <div className="avatar">
@@ -50,14 +50,14 @@ const ProductDashboard = async () => {
                                         </div>
                                     </td>
                                     <td>
-                                        <p title={product.description}>
-                                            {product.description.slice(1, 50)}
+                                        <p title={product?.description}>
+                                            {product?.description.slice(1, 50)}
                                             ...
                                         </p>
                                     </td>
 
                                     <td>
-                                        <p>${product.price}</p>
+                                        <p>${product?.price}</p>
                                     </td>
                                     <th>
                                         <button className="border-0">

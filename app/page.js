@@ -13,7 +13,7 @@ const Home = async () => {
             <h1 className="text-4xl text-center my-10">All products</h1>
             <div className="col-span-9 grid grid-cols-3 gap-5 p-10 w-[80%] mx-auto">
                 {products.map((product) => (
-                    <Product key={product?.id} product={product}></Product>
+                    <Product key={product?._id} product={product}></Product>
                 ))}
             </div>
         </div>

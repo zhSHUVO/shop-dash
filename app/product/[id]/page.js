@@ -12,29 +12,26 @@ const SingleProduct = async ({ params }) => {
     const product = data?.product;
 
     return (
-        <div className="flex items-center justify-center">
-            <div className="rounded-2xl h-[500px] flex flex-col items-start justify-between p-10 overflow-hidden shadow-md border border-gray-100 transition-all w-fit text-center">
+        <div className="flex max-w-7xl mx-auto items-center justify-around border-b border-gray-700 w-[80%]">
+            <div className="w-[50%]">
                 <Image
-                    className="mx-auto pb-5"
+                    className="m-5 mx-auto"
                     src={product?.img}
                     alt="product"
-                    width={300}
-                    height={300}
+                    width={400}
+                    height={400}
                 />
-                <div>
-                    <h1 className="text-xl font-semibold">{product?.name}</h1>
-                    <p className="text-sm">
-                        <span className="font-bold">Description:</span>
-                        {product?.description}
-                    </p>
-                    <p className="text-sm">
-                        <span className="font-bold">Price:</span>{" "}
-                        {product?.price}
-                    </p>
-                    <button className="btn btn-neutral mt-2">
-                        Add to cart
-                    </button>
-                </div>
+            </div>
+            <div className="w-[50%]">
+                <h1 className="text-3xl font-semibold">{product?.name}</h1>
+                <p className="text-xl">
+                    <span className="font-bold">Description: </span>
+                    {product?.description}
+                </p>
+                <p className="text-xl">
+                    <span className="font-bold">Price: </span> {product?.price}
+                </p>
+                <button className="btn btn-neutral mt-2">Add to cart</button>
             </div>
         </div>
     );

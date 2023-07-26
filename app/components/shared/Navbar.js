@@ -9,7 +9,16 @@ const Navbar = () => {
                     Home
                 </Link>
             </div>
+
             <div className="flex-none">
+                <div className="flex-1">
+                    <Link
+                        href={"/dashboard"}
+                        className="btn btn-ghost normal-case "
+                    >
+                        Admin Dashboard
+                    </Link>
+                </div>
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle">
                         <div className="indicator">

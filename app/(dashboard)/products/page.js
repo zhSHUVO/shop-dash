@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const ProductDashboard = async () => {
     const res = await fetch("http://localhost:3000/api/products", {
@@ -9,8 +10,15 @@ const ProductDashboard = async () => {
     const products = data?.products;
 
     return (
-        <div>
-            <div className="flex justify-center pl-10">
+        <div className="pl-10">
+            <div className="flex items-center justify-evenly w-full pb-5">
+                <h1>Total products {products.length}</h1>
+                <Link href={"/products/add"} className="btn btn-neutral">
+                    Add Product
+                </Link>
+            </div>
+
+            <div className="flex justify-center ">
                 <div className="overflow-x-auto ">
                     <table className="table table-auto ">
                         <thead>
@@ -30,8 +38,8 @@ const ProductDashboard = async () => {
                                     </td>
                                     <td>
                                         <div className="avatar">
-                                            <div className="mask mask-squircle  w-10 h-10">
-                                                <Image
+                                            <div className="mask mask-squircle w-10 h-10">
+                                                <img
                                                     className="mx-auto"
                                                     src={product?.img}
                                                     alt="product"

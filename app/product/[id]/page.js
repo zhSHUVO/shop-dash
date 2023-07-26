@@ -14,7 +14,7 @@ const SingleProduct = async ({ params }) => {
     return (
         <div className="flex max-w-7xl mx-auto items-center justify-around border-b border-gray-700 w-[80%]">
             <div className="w-[50%]">
-                <Image
+                <img
                     className="m-5 mx-auto"
                     src={product?.img}
                     alt="product"

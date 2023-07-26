@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Product = ({ product }) => {
     return (
-        <div className="rounded-2xl h-[480px] flex flex-col items-start justify-between p-5 overflow-hidden shadow-md border border-gray-100 hover:shadow-2xl hover:scale-[102%] transition-all">
+        <div className="rounded-2xl h-[500px] flex flex-col items-start justify-between p-5 overflow-hidden shadow-md border border-gray-100 hover:shadow-2xl hover:scale-[102%] transition-all">
             <Link href={`/product/${product._id}`} className="w-full">
                 <Image
                     className="mx-auto"
@@ -14,7 +14,9 @@ const Product = ({ product }) => {
                 />
             </Link>
             <div>
-                <h1 className="text-xl font-semibold">{product?.name}</h1>
+                <Link href={`/product/${product._id}`}>
+                    <h1 className="text-xl font-semibold">{product?.name}</h1>
+                </Link>
                 <p className="text-sm">
                     <span className="font-bold">Description:</span>
                     {product?.description}

@@ -1,6 +1,6 @@
 const AdminDashboard = async () => {
     const res = await fetch("http://localhost:3000/api/products", {
-        cache: "force-cache",
+        cache: "no-store",
     });
     const data = await res.json();
 

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const ProductDashboard = async () => {
     const res = await fetch("http://localhost:3000/api/products", {
-        cache: "force-cache",
+        cache: "no-store",
     });
     const data = await res.json();
 

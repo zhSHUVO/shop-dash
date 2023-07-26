@@ -15,11 +15,22 @@ export const POST = async (req) => {
             },
             { status: 422 }
         );
+
     const user = await UserModel.create({ ...body });
 
     return NextResponse.json({
         user: {
             phone: user.phone,
         },
+    });
+};
+
+export const GET = async () => {
+    await startDB();
+    
+    const users = await UserModel.find({});
+
+    return NextResponse.json({
+        users,
     });
 };

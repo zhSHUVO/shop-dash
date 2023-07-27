@@ -1,15 +1,14 @@
-import Image from "next/image";
-
 const SingleProduct = async ({ params }) => {
     const res = await fetch(
-        `http://localhost:3000/api/products/${params?.id}`,
+        `https://shop-dash.onrender.com/api/products/${params?.id}`,
         {
             cache: "no-store",
         }
     );
-    const data = await res.json();
 
-    const product = data?.product;
+    const product = await res.json();
+
+    // const product = data?.product;
 
     return (
         <div className="flex max-w-7xl mx-auto items-center justify-around border-b border-gray-700 w-[80%]">

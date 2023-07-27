@@ -13,15 +13,29 @@ const AddProduct = () => {
     let subError;
 
     const onSubmit = async (productInfo) => {
-        const res = await fetch("http://localhost:3000/api/products", {
-            method: "POST",
-            body: JSON.stringify(productInfo),
-        }).then((res) => res.json());
-        console.log(res?.product);
-        if (!res.product) {
-            alert(res?.error);
-        } else {
-            alert("added successfully");
+        try {
+            const res = await fetch(
+                "https://shop-dash.onrender.com/api/products",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(productInfo),
+                }
+            );
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                // Check if there was an error
+                alert(data.error || "Something went wrong");
+            } else {
+                alert("added successfully");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Something went wrong");
         }
     };
 

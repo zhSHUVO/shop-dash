@@ -1,13 +1,12 @@
-import Image from "next/image";
 import Link from "next/link";
 
 const ProductDashboard = async () => {
-    const res = await fetch("http://localhost:3000/api/products", {
+    const res = await fetch("https://shop-dash.onrender.com/api/products", {
         cache: "no-store",
     });
-    const data = await res.json();
+    const products = await res.json();
 
-    const products = data?.products;
+    // const products = data?.products;
 
     return (
         <div className="pl-10">

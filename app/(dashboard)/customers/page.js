@@ -1,12 +1,12 @@
 import Link from "next/link";
 
 const CustomerDashboard = async () => {
-    const res = await fetch("http://localhost:3000/api/auth/user", {
+    const res = await fetch("https://shop-dash.onrender.com/api/auth/user", {
         cache: "no-store",
     });
-    const data = await res.json();
+    const users = await res.json();
 
-    const users = data?.users;
+    // const users = data?.users;
 
     return (
         <div className="pl-10 w-[50%]">

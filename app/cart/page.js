@@ -2,11 +2,12 @@
 "use client";
 
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const CartPage = () => {
     const { data, status } = useSession();
-
+    const router = useRouter();
     const [cartItems, setCartItems] = useState([]);
 
     useEffect(() => {
@@ -15,6 +16,12 @@ const CartPage = () => {
     }, []);
 
     const handleOrder = async () => {
+        if (!data?.user?.phone) {
+            alert("Login before placing an order");
+            router.push("/user/login");
+            return;
+        }
+
         try {
             const orderData = {
                 items: cartItems,
@@ -38,7 +45,7 @@ const CartPage = () => {
                 alert("Order failed");
             }
         } catch (error) {
-            console.error("Error while processing order:", error);
+            alert("There is an error! ");
         }
     };
 

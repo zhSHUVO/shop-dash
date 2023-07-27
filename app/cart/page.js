@@ -65,7 +65,7 @@ const CartPage = () => {
                     </table>
                 </div>
                 <div className="flex justify-center p-10">
-                    <button class="btn btn-neutral">Checkout</button>
+                    <button className="btn btn-neutral">Checkout</button>
                 </div>
             </div>
         </div>

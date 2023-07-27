@@ -3,7 +3,7 @@ import Product from "./product/page";
 
 const Home = async () => {
     const res = await fetch("https://shop-dash.onrender.com/api/products", {
-        cache: "no-store",
+        cache: "force-cache",
     });
     const products = await res.json();
 

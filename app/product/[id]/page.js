@@ -5,7 +5,7 @@ const SingleProduct = async ({ params }) => {
     const res = await fetch(
         `https://shop-dash.onrender.com/api/products/${params?.id}`,
         {
-            cache: "no-store",
+            cache: "force-cache",
         }
     );
 

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const UserDashboard = async () => {
     const res = await fetch("https://shop-dash.onrender.com/api/auth/user", {
-        cache: "no-store",
+        cache: "force-cache",
     });
     const users = await res.json();
 

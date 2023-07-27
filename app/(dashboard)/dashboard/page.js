@@ -2,7 +2,7 @@ const AdminDashboard = async () => {
     const productRes = await fetch(
         "https://shop-dash.onrender.com/api/products",
         {
-            cache: "no-store",
+            cache: "force-cache",
         }
     );
     const products = await productRes.json();
@@ -10,7 +10,7 @@ const AdminDashboard = async () => {
     const userRes = await fetch(
         "https://shop-dash.onrender.com/api/auth/user",
         {
-            cache: "no-store",
+            cache: "force-cache",
         }
     );
     const users = await userRes.json();

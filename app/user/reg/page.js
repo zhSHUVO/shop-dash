@@ -14,13 +14,10 @@ const Reg = () => {
     let regError;
 
     const onSubmit = async (userInfo) => {
-        const res = await fetch(
-            "https://shop-dash.onrender.com/api/auth/user",
-            {
-                method: "POST",
-                body: JSON.stringify(userInfo),
-            }
-        ).then((res) => res.json());
+        const res = await fetch("/api/auth/user", {
+            method: "POST",
+            body: JSON.stringify(userInfo),
+        }).then((res) => res.json());
         if (!res.user) {
             alert(res?.error);
         } else {

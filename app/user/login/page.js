@@ -25,7 +25,9 @@ const Login = () => {
         });
 
         if (res?.error) alert(res?.error);
+
         router.replace("/");
+        alert("login successful");
     };
 
     return (

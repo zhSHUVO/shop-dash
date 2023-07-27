@@ -8,6 +8,14 @@ const AuthButtons = () => {
 
     const isLoggedIn = status === "authenticated";
 
+    const handleSignOut = async () => {
+        // Clear local storage when signing out
+        localStorage.removeItem("cart");
+
+        // Sign out the user
+        await signOut();
+    };
+
     return (
         <ul
             tabIndex={0}
@@ -20,10 +28,7 @@ const AuthButtons = () => {
             </li>
             <li>
                 {isLoggedIn ? (
-                    <button
-                        onClick={() => signOut()}
-                        className="justify-between"
-                    >
+                    <button onClick={handleSignOut} className="justify-between">
                         Logout
                     </button>
                 ) : (

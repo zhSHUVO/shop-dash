@@ -1,15 +1,46 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 const CartPage = () => {
+    const { data, status } = useSession();
+
     const [cartItems, setCartItems] = useState([]);
 
     useEffect(() => {
         const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
         setCartItems(storedCart);
     }, []);
+
+    const handleOrder = async () => {
+        try {
+            const orderData = {
+                items: cartItems,
+                phoneNumber: data?.user?.phone,
+            };
+
+            const response = await fetch(
+                "https://shop-dash.onrender.com/api/orders",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(orderData),
+                }
+            );
+
+            if (response.ok) {
+                alert("Order successful");
+            } else {
+                alert("Order failed");
+            }
+        } catch (error) {
+            console.error("Error while processing order:", error);
+        }
+    };
 
     return (
         <div className="min-h-screen">
@@ -65,7 +96,9 @@ const CartPage = () => {
                     </table>
                 </div>
                 <div className="flex justify-center p-10">
-                    <button className="btn btn-neutral">Checkout</button>
+                    <button onClick={handleOrder} className="btn btn-neutral">
+                        Order
+                    </button>
                 </div>
             </div>
         </div>

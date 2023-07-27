@@ -39,7 +39,7 @@ const AddProduct = () => {
     };
 
     return (
-        <div className="w-full">
+        <div className="min-h-screen">
             <h1 className="text-center text-3xl pb-5">Add New User</h1>
             <div className="flex justify-center items-center w-full">
                 <form

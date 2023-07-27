@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
 const Reg = () => {
+    const router = useRouter();
+
     const {
         register,
         handleSubmit,
@@ -22,6 +25,7 @@ const Reg = () => {
             alert(res?.error);
         } else {
             alert("reg successful");
+            router.replace("/user/login");
         }
     };
 

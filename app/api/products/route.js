@@ -18,7 +18,6 @@ export const POST = async (req) => {
     await startDB();
 
     try {
-        // Create a new product in the database
         const product = await ProductModel.create({ ...body });
 
         return NextResponse.json({

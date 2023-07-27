@@ -12,18 +12,6 @@ const AddProduct = () => {
 
     let subError;
 
-    // const onSubmit = async (userInfo) => {
-    //     const res = await fetch("https://shop-dash.onrender.com/api/auth/user", {
-    //         method: "POST",
-    //         body: JSON.stringify(userInfo),
-    //     }).then((res) => res.json());
-    //     if (!res.user) {
-    //         alert(res?.error);
-    //     } else {
-    //         alert("added successfully");
-    //     }
-    // };
-
     const onSubmit = async (userInfo) => {
         try {
             const res = await fetch(
@@ -40,7 +28,6 @@ const AddProduct = () => {
             const data = await res.json();
 
             if (!res.ok) {
-                // Check if there was an error
                 alert(data.error || "Something went wrong");
             } else {
                 alert("added successfully");

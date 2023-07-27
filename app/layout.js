@@ -1,3 +1,4 @@
+import { CartProvider } from "@/context/CartContext";
 import AuthProvider from "./components/AuthProvider";
 import Footer from "./components/shared/Footer";
 import Navbar from "./components/shared/Navbar";
@@ -12,11 +13,13 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <AuthProvider>
-                <body>
-                    <Navbar />
-                    {children}
-                    <Footer />
-                </body>
+                <CartProvider>
+                    <body>
+                        <Navbar />
+                        {children}
+                        <Footer />
+                    </body>
+                </CartProvider>
             </AuthProvider>
         </html>
     );

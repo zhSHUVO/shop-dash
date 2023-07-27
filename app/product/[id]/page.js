@@ -1,3 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
+import AddToCartButton from "@/app/components/AddToCartButton";
+
 const SingleProduct = async ({ params }) => {
     const res = await fetch(
         `https://shop-dash.onrender.com/api/products/${params?.id}`,
@@ -30,7 +33,7 @@ const SingleProduct = async ({ params }) => {
                 <p className="text-xl">
                     <span className="font-bold">Price: </span> {product?.price}
                 </p>
-                <button className="btn btn-neutral mt-2">Add to cart</button>
+                <AddToCartButton product={product} />
             </div>
         </div>
     );

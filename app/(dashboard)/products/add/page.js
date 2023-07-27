@@ -28,7 +28,6 @@ const AddProduct = () => {
             const data = await res.json();
 
             if (!res.ok) {
-                // Check if there was an error
                 alert(data.error || "Something went wrong");
             } else {
                 alert("added successfully");

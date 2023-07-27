@@ -1,8 +1,10 @@
 "use client";
 
-import { addToCart } from "@/utils/cart";
+import { useCart } from "@/context/CartContext";
 
 const AddToCartButton = ({ product }) => {
+    const { addToCart } = useCart();
+
     const handleAddToCart = () => {
         addToCart(product);
     };

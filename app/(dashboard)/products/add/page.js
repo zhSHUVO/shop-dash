@@ -39,12 +39,12 @@ const AddProduct = () => {
     };
 
     return (
-        <div className="pl-10 w-full">
+        <div className="w-full">
             <h1 className="text-center text-3xl pb-5">Add New Product</h1>
             <div className="flex justify-center items-center w-full">
                 <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="flex flex-col shadow-2xl bg-base-100 rounded-xl w-[50%]"
+                    className="flex flex-col shadow-2xl bg-base-100 rounded-xl lg:w-[50%]"
                 >
                     <div className="form-control mt-2">
                         <label className="label">
@@ -146,7 +146,7 @@ const AddProduct = () => {
 
                     <input
                         value={"Add"}
-                        className="mt-3 btn btn-primary"
+                        className="my-3 btn btn-primary"
                         type="submit"
                     />
                 </form>

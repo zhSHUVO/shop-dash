@@ -27,7 +27,7 @@ const AuthButtons = () => {
                         Logout
                     </button>
                 ) : (
-                    <Link href={"user/login"}>Login</Link>
+                    <Link href="/user/login">Login</Link>
                 )}
             </li>
         </ul>

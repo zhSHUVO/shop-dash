@@ -29,7 +29,7 @@ const Login = () => {
     };
 
     return (
-        <div className="pt-10">
+        <div className="pt-10 min-h-screen">
             <h1 className="text-center text-3xl mb-5">Login</h1>
             <div className="flex justify-center items-center ">
                 <form
@@ -103,8 +103,8 @@ const Login = () => {
                 </form>
             </div>
             <p className="text-center pt-10">
-                New user?{" "}
-                <Link href={"reg"} className="ml-3 btn btn-primary">
+                New user?
+                <Link href="reg" className="ml-3 btn btn-primary">
                     Register
                 </Link>
             </p>

@@ -18,23 +18,25 @@ const AdminDashboard = async () => {
     // const products = data?.products;
 
     return (
-        <div className="flex flex-col pl-10">
-            <div className="stats shadow">
-                <div className="stat">
-                    <div className="stat-title">Total Users</div>
-                    <div className="stat-value">{users?.length}</div>
+        <div className="min-h-screen">
+            <div className="flex flex-col lg:flex-row items-center text-center lg:justify-center p-10">
+                <div className="stats shadow">
+                    <div className="stat">
+                        <div className="stat-title">Total Users</div>
+                        <div className="stat-value">{users?.length}</div>
+                    </div>
                 </div>
-            </div>
-            <div className="stats shadow">
-                <div className="stat">
-                    <div className="stat-title">Total Products</div>
-                    <div className="stat-value">{products?.length}</div>
+                <div className="stats shadow">
+                    <div className="stat">
+                        <div className="stat-title">Total Products</div>
+                        <div className="stat-value">{products?.length}</div>
+                    </div>
                 </div>
-            </div>
-            <div className="stats shadow">
-                <div className="stat">
-                    <div className="stat-title">Total Orders</div>
-                    <div className="stat-value">89,400</div>
+                <div className="stats shadow">
+                    <div className="stat">
+                        <div className="stat-title">Total Orders</div>
+                        <div className="stat-value">89,400</div>
+                    </div>
                 </div>
             </div>
         </div>

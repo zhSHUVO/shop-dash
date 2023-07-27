@@ -1,3 +1,4 @@
+import HomeHero from "./components/HomeHero";
 import Product from "./product/page";
 
 const Home = async () => {
@@ -10,8 +11,9 @@ const Home = async () => {
 
     return (
         <div>
+            <HomeHero />
             <h1 className="text-4xl text-center my-10">All products</h1>
-            <div className="col-span-9 grid grid-cols-3 gap-5 p-10 w-[80%] mx-auto">
+            <div className="col-span-9 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-10 w-[80%] mx-auto">
                 {products.map((product) => (
                     <Product key={product?._id} product={product}></Product>
                 ))}

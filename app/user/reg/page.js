@@ -29,7 +29,7 @@ const Reg = () => {
     };
 
     return (
-        <div className="pt-10">
+        <div className="pt-10 min-h-screen">
             <h1 className="text-center text-3xl mb-5">Register</h1>
             <div className="flex justify-center items-center ">
                 <form
@@ -136,8 +136,8 @@ const Reg = () => {
                 </form>
             </div>
             <p className="text-center pt-10">
-                Existing user?{" "}
-                <Link href={"login"} className="ml-3 btn btn-primary">
+                Existing user?
+                <Link href="login" className="ml-3 btn btn-primary">
                     Login
                 </Link>
             </p>

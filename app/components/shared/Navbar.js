@@ -6,7 +6,7 @@ const Navbar = () => {
     return (
         <div className="navbar bg-base-100">
             <div className="flex-1">
-                <Link href={"/"} className="btn btn-ghost normal-case text-xl">
+                <Link href="/" className="btn btn-ghost normal-case text-xl">
                     Home
                 </Link>
             </div>
@@ -14,10 +14,10 @@ const Navbar = () => {
             <div className="flex-none">
                 <div className="flex-1">
                     <Link
-                        href={"/dashboard"}
+                        href="/dashboard"
                         className="btn btn-ghost normal-case "
                     >
-                        Admin Dashboard
+                        Dashboard
                     </Link>
                 </div>
 

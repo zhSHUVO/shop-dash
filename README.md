@@ -2,7 +2,7 @@
 
 Shop Dash is an e-commerce web application built with Next.js and MongoDB. It allows users to browse and purchase various products, manage their shopping cart, and place orders. The application also includes authentication using NextAuth.js to provide a secure and personalized shopping experience.
 
-Visit - [ShopDesh](shop-dash.vercel.app) or [ShopDesh](shop-dash-zhshuvo.vercel.app)
+Visit - [ShopDesh](https://shop-dash.vercel.app/) or [ShopDesh](https://shop-dash-zhshuvo.vercel.app/)
 
 ## Table of Contents
 

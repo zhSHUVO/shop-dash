@@ -1,10 +1,11 @@
 import Link from "next/link";
+import AddToCartButton from "../components/AddToCartButton";
 
 const Product = ({ product }) => {
     return (
-        <Link href={`/product/${product?._id}`}>
-            <div className="rounded-2xl h-[450px] flex flex-col items-start justify-between p-5 overflow-hidden shadow-md border border-gray-100 hover:shadow-2xl hover:scale-[102%] transition-all">
-                <div className="w-full">
+        <div className="rounded-2xl h-[450px] flex flex-col items-start justify-between p-5 overflow-hidden shadow-md border border-gray-100 hover:shadow-2xl hover:scale-[102%] transition-all">
+            <div className="w-full">
+                <Link href={`/product/${product?._id}`}>
                     <img
                         className="mx-auto"
                         src={product?.img}
@@ -12,21 +13,20 @@ const Product = ({ product }) => {
                         width={280}
                         height={280}
                     />
-                </div>
+                </Link>
+            </div>
 
-                <div>
+            <div>
+                <Link href={`/product/${product?._id}`}>
                     <h1 className="text-xl font-semibold">{product?.name}</h1>
+                </Link>
 
-                    <p className="text-sm">
-                        <span className="font-bold">Price: </span> $
-                        {product?.price}
-                    </p>
-                    <button className="btn btn-neutral mt-2">
-                        Add to cart
-                    </button>
-                </div>
-            </div>{" "}
-        </Link>
+                <p className="text-sm">
+                    <span className="font-bold">Price: </span> ${product?.price}
+                </p>
+                <AddToCartButton product={product} />
+            </div>
+        </div>
     );
 };
 

@@ -59,10 +59,15 @@ const AddProduct = () => {
                     onSubmit={handleSubmit(onSubmit)}
                     className="flex flex-col shadow-2xl bg-base-100 rounded-xl w-[50%]"
                 >
-                    <div className="indicator w-full">
+                    <div className="form-control mt-2">
+                        <label className="label">
+                            <span className="label-text">Number</span>
+                        </label>
                         <input
-                            placeholder="Phone Number"
-                            className="my-1 input input-bordered w-full"
+                            placeholder="Enter Your Phone Number"
+                            className={`input ${
+                                errors.phone ? "input-error" : "input-bordered"
+                            } w-full`}
                             type="text"
                             {...register("phone", {
                                 required: {
@@ -77,16 +82,23 @@ const AddProduct = () => {
                             })}
                         />
                         {errors.phone && (
-                            <span className="indicator-item badge">
+                            <span className="flex items-center font-medium tracking-wide text-red-400 text-xs mt-1 ml-1">
                                 {errors.phone.message}
                             </span>
                         )}
                     </div>
 
-                    <div className="indicator w-full">
+                    <div className="form-control mt-2">
+                        <label className="label">
+                            <span className="label-text">Password</span>
+                        </label>
                         <input
-                            placeholder="Password"
-                            className="my-1 input input-bordered w-full"
+                            placeholder="Enter Your Password"
+                            className={`input ${
+                                errors.password
+                                    ? "input-error"
+                                    : "input-bordered"
+                            } w-full`}
                             type="password"
                             {...register("password", {
                                 required: {
@@ -100,7 +112,7 @@ const AddProduct = () => {
                             })}
                         />
                         {errors.password && (
-                            <span className="indicator-item badge">
+                            <span className="flex items-center font-medium tracking-wide text-red-400 text-xs mt-1 ml-1">
                                 {errors.password.message}
                             </span>
                         )}
@@ -110,7 +122,7 @@ const AddProduct = () => {
 
                     <input
                         value={"Add"}
-                        className="my-1 btn btn-primary"
+                        className="my-3 btn btn-primary"
                         type="submit"
                     />
                 </form>

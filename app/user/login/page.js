@@ -17,7 +17,7 @@ const Login = () => {
 
     const onSubmit = async (data) => {
         const { phone, password } = data;
-        
+
         const res = await signIn("credentials", {
             phone,
             password,
@@ -36,10 +36,15 @@ const Login = () => {
                     onSubmit={handleSubmit(onSubmit)}
                     className="flex flex-col lg:w-1/4 w-3/4	shadow-2xl bg-base-100 rounded-xl p-5"
                 >
-                    <div className="indicator w-full">
+                    <div className="form-control mt-2">
+                        <label className="label">
+                            <span className="label-text">Phone Number</span>
+                        </label>
                         <input
-                            placeholder="Phone Number"
-                            className="my-1 input input-bordered w-full"
+                            placeholder="Enter Your Phone Number"
+                            className={`input ${
+                                errors.phone ? "input-error" : "input-bordered"
+                            } w-full`}
                             type="text"
                             {...register("phone", {
                                 required: {
@@ -54,16 +59,23 @@ const Login = () => {
                             })}
                         />
                         {errors.phone && (
-                            <span className="indicator-item badge">
+                            <span className="flex items-center font-medium tracking-wide text-red-400 text-xs mt-1 ml-1">
                                 {errors.phone.message}
                             </span>
                         )}
                     </div>
 
-                    <div className="indicator w-full">
+                    <div className="form-control mt-2">
+                        <label className="label">
+                            <span className="label-text">Password</span>
+                        </label>
                         <input
-                            placeholder="Password"
-                            className="my-1 input input-bordered w-full"
+                            placeholder="Enter Your Password"
+                            className={`input ${
+                                errors.password
+                                    ? "input-error"
+                                    : "input-bordered"
+                            } w-full`}
                             type="password"
                             {...register("password", {
                                 required: {
@@ -77,7 +89,7 @@ const Login = () => {
                             })}
                         />
                         {errors.password && (
-                            <span className="indicator-item badge">
+                            <span className="flex items-center font-medium tracking-wide text-red-400 text-xs mt-1 ml-1">
                                 {errors.password.message}
                             </span>
                         )}
@@ -85,7 +97,7 @@ const Login = () => {
 
                     <input
                         value={"login"}
-                        className="my-1 btn btn-primary"
+                        className="my-3 btn btn-primary"
                         type="submit"
                     />
                 </form>

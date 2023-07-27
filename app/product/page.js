@@ -2,27 +2,31 @@ import Link from "next/link";
 
 const Product = ({ product }) => {
     return (
-        <div className="rounded-2xl h-[450px] flex flex-col items-start justify-between p-5 overflow-hidden shadow-md border border-gray-100 hover:shadow-2xl hover:scale-[102%] transition-all">
-            <Link href={`/product/${product?._id}`} className="w-full">
-                <img
-                    className="mx-auto"
-                    src={product?.img}
-                    alt="product"
-                    width={280}
-                    height={280}
-                />
-            </Link>
-            <div>
-                <Link href={`/product/${product?._id}`}>
-                    <h1 className="text-xl font-semibold">{product?.name}</h1>
-                </Link>
+        <Link href={`/product/${product?._id}`}>
+            <div className="rounded-2xl h-[450px] flex flex-col items-start justify-between p-5 overflow-hidden shadow-md border border-gray-100 hover:shadow-2xl hover:scale-[102%] transition-all">
+                <div className="w-full">
+                    <img
+                        className="mx-auto"
+                        src={product?.img}
+                        alt="product"
+                        width={280}
+                        height={280}
+                    />
+                </div>
 
-                <p className="text-sm">
-                    <span className="font-bold">Price: </span> ${product?.price}
-                </p>
-                <button className="btn btn-neutral mt-2">Add to cart</button>
-            </div>
-        </div>
+                <div>
+                    <h1 className="text-xl font-semibold">{product?.name}</h1>
+
+                    <p className="text-sm">
+                        <span className="font-bold">Price: </span> $
+                        {product?.price}
+                    </p>
+                    <button className="btn btn-neutral mt-2">
+                        Add to cart
+                    </button>
+                </div>
+            </div>{" "}
+        </Link>
     );
 };
 

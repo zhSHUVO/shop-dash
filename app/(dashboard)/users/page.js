@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const CustomerDashboard = async () => {
+const UserDashboard = async () => {
     const res = await fetch("https://shop-dash.onrender.com/api/auth/user", {
         cache: "no-store",
     });
@@ -12,7 +12,7 @@ const CustomerDashboard = async () => {
         <div className="pl-10 w-[50%]">
             <div className="flex items-center justify-evenly w-full pb-5">
                 <h1>Total users {users.length}</h1>
-                <Link href={"/customers/add"} className="btn btn-neutral">
+                <Link href={"/users/add"} className="btn btn-neutral">
                     Add User
                 </Link>
             </div>
@@ -58,4 +58,4 @@ const CustomerDashboard = async () => {
     );
 };
 
-export default CustomerDashboard;
+export default UserDashboard;

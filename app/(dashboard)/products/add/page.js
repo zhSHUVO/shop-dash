@@ -47,10 +47,15 @@ const AddProduct = () => {
                     onSubmit={handleSubmit(onSubmit)}
                     className="flex flex-col shadow-2xl bg-base-100 rounded-xl w-[50%]"
                 >
-                    <div className="indicator w-full">
+                    <div className="form-control mt-2">
+                        <label className="label">
+                            <span className="label-text">Name</span>
+                        </label>
                         <input
-                            placeholder="Product Name"
-                            className="my-1 input input-bordered w-full"
+                            placeholder="Enter Your Product Name"
+                            className={`input ${
+                                errors.name ? "input-error" : "input-bordered"
+                            } w-full`}
                             type="text"
                             {...register("name", {
                                 required: {
@@ -60,16 +65,21 @@ const AddProduct = () => {
                             })}
                         />
                         {errors.name && (
-                            <span className="indicator-item badge">
+                            <span className="flex items-center font-medium tracking-wide text-red-400 text-xs mt-1 ml-1">
                                 {errors.name.message}
                             </span>
                         )}
                     </div>
 
-                    <div className="indicator w-full">
+                    <div className="form-control mt-2">
+                        <label className="label">
+                            <span className="label-text">Description</span>
+                        </label>
                         <input
-                            placeholder="Product Description"
-                            className="my-1 input input-bordered w-full"
+                            placeholder="Enter Your Product Description"
+                            className={`input ${
+                                errors.name ? "input-error" : "input-bordered"
+                            } w-full`}
                             type="text"
                             {...register("description", {
                                 required: {
@@ -79,16 +89,21 @@ const AddProduct = () => {
                             })}
                         />
                         {errors.description && (
-                            <span className="indicator-item badge">
+                            <span className="flex items-center font-medium tracking-wide text-red-400 text-xs mt-1 ml-1 ">
                                 {errors.description.message}
                             </span>
                         )}
                     </div>
 
-                    <div className="indicator w-full">
+                    <div className="form-control mt-2">
+                        <label className="label">
+                            <span className="label-text">Img Link</span>
+                        </label>
                         <input
-                            placeholder="Image Link"
-                            className="my-1 input input-bordered w-full"
+                            placeholder="Enter Your Image Link"
+                            className={`input ${
+                                errors.name ? "input-error" : "input-bordered"
+                            } w-full`}
                             type="text"
                             {...register("img", {
                                 required: {
@@ -98,16 +113,21 @@ const AddProduct = () => {
                             })}
                         />
                         {errors.img && (
-                            <span className="indicator-item badge">
+                            <span className="flex items-center font-medium tracking-wide text-red-400 text-xs mt-1 ml-1">
                                 {errors.img.message}
                             </span>
                         )}
                     </div>
 
-                    <div className="indicator w-full">
+                    <div className="form-control mt-2">
+                        <label className="label">
+                            <span className="label-text">Price</span>
+                        </label>
                         <input
-                            placeholder="Product Price"
-                            className="my-1 input input-bordered w-full"
+                            placeholder="Enter Your Product Price"
+                            className={`input ${
+                                errors.name ? "input-error" : "input-bordered"
+                            } w-full`}
                             type="text"
                             {...register("price", {
                                 required: {
@@ -117,7 +137,7 @@ const AddProduct = () => {
                             })}
                         />
                         {errors.price && (
-                            <span className="indicator-item badge">
+                            <span className="flex items-center font-medium tracking-wide text-red-400 text-xs mt-1 ml-1">
                                 {errors.price.message}
                             </span>
                         )}
@@ -127,7 +147,7 @@ const AddProduct = () => {
 
                     <input
                         value={"Add"}
-                        className="my-1 btn btn-primary"
+                        className="mt-3 btn btn-primary"
                         type="submit"
                     />
                 </form>

@@ -1,8 +1,19 @@
 const AdminDashboard = async () => {
-    const res = await fetch("https://shop-dash.onrender.com/api/products", {
-        cache: "no-store",
-    });
-    const products = await res.json();
+    const productRes = await fetch(
+        "https://shop-dash.onrender.com/api/products",
+        {
+            cache: "no-store",
+        }
+    );
+    const products = await productRes.json();
+
+    const userRes = await fetch(
+        "https://shop-dash.onrender.com/api/auth/user",
+        {
+            cache: "no-store",
+        }
+    );
+    const users = await userRes.json();
 
     // const products = data?.products;
 
@@ -10,14 +21,14 @@ const AdminDashboard = async () => {
         <div className="flex flex-col pl-10">
             <div className="stats shadow">
                 <div className="stat">
-                    <div className="stat-title">Total Customers</div>
-                    <div className="stat-value">89,400</div>
+                    <div className="stat-title">Total Users</div>
+                    <div className="stat-value">{users?.length}</div>
                 </div>
             </div>
             <div className="stats shadow">
                 <div className="stat">
                     <div className="stat-title">Total Products</div>
-                    <div className="stat-value">{products.length}</div>
+                    <div className="stat-value">{products?.length}</div>
                 </div>
             </div>
             <div className="stats shadow">

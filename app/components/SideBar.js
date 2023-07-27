@@ -24,7 +24,7 @@ const SideBar = () => {
                     ></label>
                     <ul className="menu p-4 w-80 h-fit bg-base-200 text-base-content">
                         <li>
-                            <Link href="/customers">Customers</Link>
+                            <Link href="/users">Users</Link>
                         </li>
                         <li>
                             <Link href="/products">Products</Link>

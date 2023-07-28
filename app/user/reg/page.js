@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 
 const Reg = () => {
     const router = useRouter();
@@ -22,15 +23,15 @@ const Reg = () => {
             body: JSON.stringify(userInfo),
         }).then((res) => res.json());
         if (!res.user) {
-            alert(res?.error);
+            toast.error(res?.error);
         } else {
-            alert("reg successful");
+            toast.success("registration successful");
             router.replace("/user/login");
         }
     };
 
     return (
-        <div className="pt-10 min-h-screen">
+        <div className="pt-24 min-h-screen">
             <h1 className="text-center text-3xl mb-5">Register</h1>
             <div className="flex justify-center items-center ">
                 <form
@@ -131,14 +132,14 @@ const Reg = () => {
 
                     <input
                         value={"register"}
-                        className="my-3 btn btn-primary"
+                        className="my-3 btn btn-neutral"
                         type="submit"
                     />
                 </form>
             </div>
             <p className="text-center pt-10">
                 Existing user?
-                <Link href="login" className="ml-3 btn btn-primary">
+                <Link href="login" className="ml-3 btn btn-neutral">
                     Login
                 </Link>
             </p>

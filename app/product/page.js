@@ -4,7 +4,7 @@ import AddToCartButton from "../components/AddToCartButton";
 
 const Product = ({ product }) => {
     return (
-        <div className="rounded-2xl h-[400px] lg:h-[450px] flex flex-col items-start justify-between p-5 overflow-hidden shadow-md border border-gray-100 hover:shadow-2xl hover:scale-[102%] transition-all">
+        <div className="bg-[#242631] border border-[#21222c] rounded-2xl h-[400px] lg:h-[450px] flex flex-col items-start justify-between p-5 overflow-hidden shadow-lg hover:scale-[102%] transition-all">
             <div className="w-full">
                 <Link href={`/product/${product?._id}`}>
                     <img

@@ -4,6 +4,7 @@ import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
     const {
@@ -24,14 +25,14 @@ const Login = () => {
             redirect: false,
         });
 
-        if (res?.error) alert(res?.error);
+        if (res?.error) toast.error(res?.error);
 
         router.replace("/");
-        alert("login successful");
+        toast.success("login successful");
     };
 
     return (
-        <div className="pt-10 min-h-screen">
+        <div className="pt-24 min-h-screen">
             <h1 className="text-center text-3xl mb-5">Login</h1>
             <div className="flex justify-center items-center ">
                 <form
@@ -99,40 +100,17 @@ const Login = () => {
 
                     <input
                         value={"login"}
-                        className="my-3 btn btn-primary"
+                        className="my-3 btn btn-neutral"
                         type="submit"
                     />
                 </form>
             </div>
             <p className="text-center pt-10">
                 New user?
-                <Link href="reg" className="ml-3 btn btn-primary">
+                <Link href="reg" className="ml-3 btn btn-neutral">
                     Register
                 </Link>
             </p>
-
-            {/* <div className="divider">OR</div>
-
-            <div className="flex justify-center items-center">
-                <button
-                    onClick={() => signInWithGoogle()}
-                    className="btn w-1/4"
-                >
-                    Continue with{" "}
-                    <svg
-                        className="ml-2"
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeWidth="0"
-                        viewBox="0 0 488 512"
-                        height="1.5em"
-                        width="1.5em"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"></path>
-                    </svg>
-                </button>
-            </div> */}
         </div>
     );
 };

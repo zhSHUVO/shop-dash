@@ -1,6 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 
 const AddProduct = () => {
     const {
@@ -28,13 +29,12 @@ const AddProduct = () => {
             const data = await res.json();
 
             if (!res.ok) {
-                alert(data.error || "Something went wrong");
+                toast.error(data.error || "Something went wrong");
             } else {
-                alert("added successfully");
+                toast.success("added successfully");
             }
         } catch (error) {
-            console.error("Error:", error);
-            alert("Something went wrong");
+            toast.error("Something went wrong");
         }
     };
 
@@ -44,7 +44,7 @@ const AddProduct = () => {
             <div className="flex justify-center items-center w-full">
                 <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="flex flex-col shadow-2xl bg-base-100 rounded-xl lg:w-[50%]"
+                    className="flex flex-col shadow-2xl bg-base-100 rounded-xl p-5 lg:w-[50%]"
                 >
                     <div className="form-control mt-2">
                         <label className="label">
@@ -146,7 +146,7 @@ const AddProduct = () => {
 
                     <input
                         value={"Add"}
-                        className="my-3 btn btn-primary"
+                        className="my-3 btn btn-neutral"
                         type="submit"
                     />
                 </form>

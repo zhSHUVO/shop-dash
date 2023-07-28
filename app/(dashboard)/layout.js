@@ -14,7 +14,7 @@ export default async function PrivateLayout({ children }) {
 
     return (
         <div>
-            <h1 className="text-4xl text-center my-10">Dashboard</h1>
+            <h1 className="pt-24 text-4xl text-center my-10">Dashboard</h1>
             <div className="">
                 <TopBar />
                 {children}

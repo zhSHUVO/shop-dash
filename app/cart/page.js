@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 import { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 
 const CartPage = () => {
     const { data, status } = useSession();
@@ -18,7 +19,7 @@ const CartPage = () => {
 
     const handleOrder = async () => {
         if (!data?.user?.phone) {
-            alert("Login before placing an order");
+            toast.error("Login before placing an order");
             router.push("/user/login");
             return;
         }
@@ -41,12 +42,12 @@ const CartPage = () => {
             );
 
             if (response.ok) {
-                alert("Order successful");
+                toast.success("Order successful");
             } else {
-                alert("Order failed");
+                toast.error("Order failed");
             }
         } catch (error) {
-            alert("There is an error! ");
+            toast.error("There is an error!");
         }
     };
 

@@ -14,7 +14,7 @@ const SingleProduct = async ({ params }) => {
     // const product = data?.product;
 
     return (
-        <div className="flex flex-col lg:flex-row max-w-7xl mx-auto items-center lg:justify-around border-b border-gray-700 lg:w-[80%] min-h-screen">
+        <div className="flex flex-col lg:flex-row max-w-7xl mx-auto items-center lg:justify-around lg:w-[80%] min-h-screen">
             <div className="w-[70%] lg:w-[50%]">
                 <img
                     className="m-5 mx-auto"
@@ -31,7 +31,7 @@ const SingleProduct = async ({ params }) => {
                     {product?.description}
                 </p>
                 <p className="text-xl">
-                    <span className="font-bold">Price: </span> {product?.price}
+                    <span className="font-bold">Price: </span> ${product?.price}
                 </p>
                 <AddToCartButton product={product} />
             </div>

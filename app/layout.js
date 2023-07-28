@@ -1,4 +1,5 @@
 import { CartProvider } from "@/context/CartContext";
+import { Toaster } from "react-hot-toast";
 import AuthProvider from "./components/AuthProvider";
 import Footer from "./components/shared/Footer";
 import Navbar from "./components/shared/Navbar";
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
                         <Navbar />
                         {children}
                         <Footer />
+                        <Toaster />
                     </body>
                 </CartProvider>
             </AuthProvider>

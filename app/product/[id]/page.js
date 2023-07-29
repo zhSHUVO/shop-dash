@@ -1,17 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
 import AddToCartButton from "@/app/components/AddToCartButton";
+import { useEffect, useState } from "react";
 
-const SingleProduct = async ({ params }) => {
-    const res = await fetch(
-        `https://shop-dash.onrender.com/api/products/${params?.id}`,
-        {
-            cache: "force-cache",
-        }
-    );
-
-    const product = await res.json();
-
-    // const product = data?.product;
+const SingleProduct = ({ params }) => {
+    const [product, setProduct] = useState([]);
+    useEffect(() => {
+        const fetchProduct = async () => {
+            const res = await fetch(
+                "https://shop-dash.onrender.com/api/products/${params?.id}",
+                {
+                    cache: "force-cache",
+                }
+            );
+            const singleProduct = await res.json();
+            setProduct(singleProduct);
+        };
+        fetchProduct();
+    }, []);
 
     return (
         <div className="flex flex-col lg:flex-row max-w-7xl mx-auto items-center lg:justify-around lg:w-[80%] min-h-screen">

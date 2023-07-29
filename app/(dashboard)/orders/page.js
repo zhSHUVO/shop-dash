@@ -1,10 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
 
-const OrderDashboard = async () => {
-    const res = await fetch("https://shop-dash.onrender.com/api/orders", {
-        cache: "force-cache",
-    });
-    const orders = await res.json();
+import { useEffect, useState } from "react";
+
+const OrderDashboard = () => {
+    const [orders, setOrders] = useState([]);
+    useEffect(() => {
+        const fetchOrders = async () => {
+            const res = await fetch(
+                "https://shop-dash.onrender.com/api/orders",
+                {
+                    cache: "force-cache",
+                }
+            );
+            const allOrders = await res.json();
+            setOrders(allOrders);
+        };
+        fetchOrders();
+    }, []);
 
     return (
         <div className="min-h-screen">

@@ -1,13 +1,24 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import HomeHero from "./components/HomeHero";
 import Product from "./product/page";
 
-const Home = async () => {
-    const res = await fetch("https://shop-dash.onrender.com/api/products", {
-        cache: "force-cache",
-    });
-    const products = await res.json();
-
-    // const products = data?.products;
+const Home = () => {
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+        const callProduct = async () => {
+            const res = await fetch(
+                "https://shop-dash.onrender.com/api/products",
+                {
+                    cache: "force-cache",
+                }
+            );
+            const allProducts = await res.json();
+            setProducts(allProducts);
+        };
+        callProduct();
+    }, []);
 
     return (
         <div>

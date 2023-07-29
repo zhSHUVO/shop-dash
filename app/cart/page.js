@@ -42,6 +42,7 @@ const CartPage = () => {
             );
 
             if (response.ok) {
+                router.replace("/");
                 toast.success("Order successful");
             } else {
                 toast.error("Order failed");
@@ -52,7 +53,7 @@ const CartPage = () => {
     };
 
     return (
-        <div className="min-h-screen">
+        <div className="pt-24 min-h-screen">
             <div className="flex flex-col items-center justify-center">
                 <h1 className="text-4xl text-center my-10">Cart Items</h1>
 

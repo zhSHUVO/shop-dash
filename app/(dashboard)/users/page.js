@@ -1,12 +1,23 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-const UserDashboard = async () => {
-    const res = await fetch("https://shop-dash.onrender.com/api/auth/user", {
-        cache: "force-cache",
-    });
-    const users = await res.json();
-
-    // const users = data?.users;
+const UserDashboard = () => {
+    const [users, setUsers] = useState([]);
+    useEffect(() => {
+        const fetchUsers = async () => {
+            const res = await fetch(
+                "https://shop-dash.onrender.com/api/auth/user",
+                {
+                    cache: "force-cache",
+                }
+            );
+            const allUsers = await res.json();
+            setUsers(allUsers);
+        };
+        fetchUsers();
+    }, []);
 
     return (
         <div className="min-h-screen">

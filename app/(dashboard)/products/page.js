@@ -1,13 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-const ProductDashboard = async () => {
-    const res = await fetch("https://shop-dash.onrender.com/api/products", {
-        cache: "force-cache",
-    });
-    const products = await res.json();
-
-    // const products = data?.products;
+const ProductDashboard = () => {
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+        const fetchProducts = async () => {
+            const res = await fetch(
+                "https://shop-dash.onrender.com/api/products",
+                {
+                    cache: "force-cache",
+                }
+            );
+            const allProducts = await res.json();
+            setProducts(allProducts);
+        };
+        fetchProducts();
+    }, []);
 
     return (
         <div className="min-h-screen">

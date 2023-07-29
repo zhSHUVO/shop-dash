@@ -1,21 +1,52 @@
-const AdminDashboard = async () => {
-    const productRes = await fetch(
-        "https://shop-dash.onrender.com/api/products",
-        {
-            cache: "force-cache",
-        }
-    );
-    const products = await productRes.json();
+"use client";
 
-    const userRes = await fetch(
-        "https://shop-dash.onrender.com/api/auth/user",
-        {
-            cache: "force-cache",
-        }
-    );
-    const users = await userRes.json();
+import { useEffect, useState } from "react";
 
-    // const products = data?.products;
+const AdminDashboard = () => {
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+        const callProduct = async () => {
+            const res = await fetch(
+                "https://shop-dash.onrender.com/api/products",
+                {
+                    cache: "force-cache",
+                }
+            );
+            const allProducts = await res.json();
+            setProducts(allProducts);
+        };
+        callProduct();
+    }, []);
+
+    const [users, setUsers] = useState([]);
+    useEffect(() => {
+        const fetchUsers = async () => {
+            const res = await fetch(
+                "https://shop-dash.onrender.com/api/auth/user",
+                {
+                    cache: "force-cache",
+                }
+            );
+            const allUsers = await res.json();
+            setUsers(allUsers);
+        };
+        fetchUsers();
+    }, []);
+
+    const [orders, setOrders] = useState([]);
+    useEffect(() => {
+        const fetchOrders = async () => {
+            const res = await fetch(
+                "https://shop-dash.onrender.com/api/orders",
+                {
+                    cache: "force-cache",
+                }
+            );
+            const allOrders = await res.json();
+            setOrders(allOrders);
+        };
+        fetchOrders();
+    }, []);
 
     return (
         <div className="min-h-screen">
@@ -35,7 +66,7 @@ const AdminDashboard = async () => {
                 <div className="stats shadow">
                     <div className="stat">
                         <div className="stat-title">Total Orders</div>
-                        <div className="stat-value">89,400</div>
+                        <div className="stat-value">{orders?.length}</div>
                     </div>
                 </div>
             </div>

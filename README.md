@@ -8,6 +8,7 @@ Visit - [ShopDesh](https://shop-dash.vercel.app/) or [ShopDesh](https://shop-das
 
 -   [Installation](#installation)
 -   [Features](#features)
+-   [Known Problem](#known-problem)
 -   [Technologies Used](#technologies-used)
 -   [Getting Started](#getting-started)
 -   [Configuration](#configuration)
@@ -48,6 +49,10 @@ The application will be accessible at `http://localhost:3000`.
 -   Adding products to the cart
 -   Placing orders with user details
 -   Admin dashboard for managing products
+
+## One Unresolved Issue
+
+As I have implemented private protected route using nextAuth, there is a problem. When you login and want to go to "Dashboard" nextAuth for some unknown reason can't validate your login and redireact you to login page again. To solve this, you don't need to login again, please reload the website and then try to go to "Dashboard". Now you'll be able to see "Dashboard".
 
 ## Technologies Used
 

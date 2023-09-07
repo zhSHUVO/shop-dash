@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ["i.ibb.co"],
+        domains: ["www.startech.com.bd", "i.ibb.co", "m.media-amazon.com"],
     },
     webpack: (config, { dev }) => {
         if (dev) {

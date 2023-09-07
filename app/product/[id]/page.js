@@ -9,7 +9,7 @@ const SingleProduct = ({ params }) => {
     useEffect(() => {
         const fetchProduct = async () => {
             const res = await fetch(
-                "https://shop-dash.onrender.com/api/products/${params?.id}",
+                `https://shop-dash.onrender.com/api/products/${params?.id}`,
                 {
                     cache: "force-cache",
                 }
@@ -18,7 +18,7 @@ const SingleProduct = ({ params }) => {
             setProduct(singleProduct);
         };
         fetchProduct();
-    }, []);
+    }, [params?.id]);
 
     return (
         <div className="flex flex-col lg:flex-row max-w-7xl mx-auto items-center lg:justify-around lg:w-[80%] min-h-screen">
